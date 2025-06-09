@@ -3,6 +3,30 @@ import { useInView } from '../hooks/useInView';
 import IconCloud from './magicui/icon-cloud';
 import { Marquee } from './magicui/marquee';
 
+// Import images
+import angularLogo from '../assets/logo/Angular.png';
+import bootstrapLogo from '../assets/logo/bootstrap.png';
+import chatgptLogo from '../assets/logo/chatgpt.png';
+import cppLogo from '../assets/logo/cpp.png';
+import cssLogo from '../assets/logo/css.png';
+import dartLogo from '../assets/logo/Dart_logo.png';
+import firebaseLogo from '../assets/logo/Firebase.png';
+import flutterLogo from '../assets/logo/flutter.png';
+import gitLogo from '../assets/logo/git.png';
+import githubLogo from '../assets/logo/github.png';
+import htmlLogo from '../assets/logo/html.png';
+import javaLogo from '../assets/logo/java-logo.png';
+import javascriptLogo from '../assets/logo/javascript.png';
+import magicLogo from '../assets/logo/magic.png';
+import mysqlLogo from '../assets/logo/mysql.png';
+import phpLogo from '../assets/logo/php.png';
+import pythonLogo from '../assets/logo/Python.png';
+import reactLogo from '../assets/logo/React.png';
+import typescriptLogo from '../assets/logo/Typescript.png';
+import vercelLogo from '../assets/logo/vercel.png';
+import viteLogo from '../assets/logo/vite.png';
+import vscodeLogo from '../assets/logo/VScode.png';
+
 interface SkillCategory {
   title: string;
   skills: Skill[];
@@ -15,28 +39,28 @@ interface Skill {
 
 // Images for the IconCloud
 const images = [
-  "../src/assets/logo/Angular.png",
-  "../src/assets/logo/bootstrap.png",
-  "../src/assets/logo/chatgpt.png",
-  "../src/assets/logo/cpp.png",
-  "../src/assets/logo/css.png",
-  "../src/assets/logo/Dart_logo.png",
-  "../src/assets/logo/Firebase.png",
-  "../src/assets/logo/flutter.png",
-  "../src/assets/logo/git.png",
-  "../src/assets/logo/html.png",
-  "../src/assets/logo/java-logo.png",
-  "../src/assets/logo/javascript.png",
-  "../src/assets/logo/magic.png",
-  "../src/assets/logo/mysql.png",
-  "../src/assets/logo/php.png",
-  "../src/assets/logo/Python.png",
-  "../src/assets/logo/React.png",
-  "../src/assets/logo/vercel.png",
-  "../src/assets/logo/VScode.png",
-  "../src/assets/logo/Typescript.png",
-  "../src/assets/logo/github.png",
-  "../src/assets/logo/vite.png",
+  angularLogo,
+  bootstrapLogo,
+  chatgptLogo,
+  cppLogo,
+  cssLogo,
+  dartLogo,
+  firebaseLogo,
+  flutterLogo,
+  gitLogo,
+  htmlLogo,
+  javaLogo,
+  javascriptLogo,
+  magicLogo,
+  mysqlLogo,
+  phpLogo,
+  pythonLogo,
+  reactLogo,
+  vercelLogo,
+  vscodeLogo,
+  typescriptLogo,
+  githubLogo,
+  viteLogo,
 ];
 
 const Skills = () => {
