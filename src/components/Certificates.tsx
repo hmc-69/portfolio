@@ -12,9 +12,9 @@ type Certificate = {
 };
 
 // Import certificate images
-import figmacert from '../assets/certificates/figma.jpg';
-import deloitteCert from '../assets/certificates/deloitte.png';
-import angularCert from '../assets/certificates/angular.png';
+import figmacert from '../assets/figma.jpg';
+import deloitteCert from '../assets/deloitte.png';
+import angularCert from '../assets/angular.png';
 
 const certificates: Certificate[] = [
   {
