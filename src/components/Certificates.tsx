@@ -12,7 +12,7 @@ type Certificate = {
 };
 
 // Import certificate images
-import figmaCert from '../assets/certificates/figma.jpg';
+import figmacert from '../assets/certificates/figma.jpg';
 import deloitteCert from '../assets/certificates/deloitte.png';
 import angularCert from '../assets/certificates/angular.png';
 
@@ -22,7 +22,7 @@ const certificates: Certificate[] = [
     issuer: 'Udemy',
     date: 'July 2025',
     credential: 'UC-f685f6b5-44bb-4b09-8086-b1765a29a592',
-    image: figmaCert,
+    image: figmacert,
     description: [
       'Created responsive web/mobile UI designs with wireframes and prototypes',
       'Learned animations design systems and real-world UI/UX workflows.'
