@@ -11,14 +11,20 @@ type Certificate = {
   description: string[];
 };
 
+// Import certificate images
+import figmaCert from '../assets/Certificates/figma.jpg';
+import deloitteCert from '../assets/Certificates/Deloitte.png';
+import angularCert from '../assets/Certificates/Angular.png';
+
 const certificates: Certificate[] = [
   {
     title: 'Complete Figma Course: Web & Mobile Projects from Scratch',
     issuer: 'Udemy',
     date: 'July 2025',
     credential: 'UC-f685f6b5-44bb-4b09-8086-b1765a29a592',
-    image: 'src/assets/Certificates/figma.jpg',
-    description: ['Created responsive web/mobile UI designs with wireframes and prototypes',
+    image: figmaCert,
+    description: [
+      'Created responsive web/mobile UI designs with wireframes and prototypes',
       'Learned animations design systems and real-world UI/UX workflows.'
     ],
   },
@@ -27,8 +33,9 @@ const certificates: Certificate[] = [
     issuer: 'Forage',
     date: 'July 2025',
     credential: 'ZGasMcLfNCQencaMP',
-    image: 'src/assets/Certificates/Deloitte.png',
-    description: ['Completed a job simulation involving development and coding',
+    image: deloitteCert,
+    description: [
+      'Completed a job simulation involving development and coding',
       'Wrote a proposal for creating a dashboard for a client',
     ],
   },
@@ -37,8 +44,9 @@ const certificates: Certificate[] = [
     issuer: 'HackerRank',
     date: 'July 2025',
     credential: '8F86F2D45625',
-    image: 'src/assets/Certificates/Angular.png',
-    description: ['Covered MVC frameworks, components, TypeScript, two-way binding, and form validation',
+    image: angularCert,
+    description: [
+      'Covered MVC frameworks, components, TypeScript, two-way binding, and form validation',
       'Validated core Angular skills through hands-on assessment and scenario-based questions',
     ],
   }
