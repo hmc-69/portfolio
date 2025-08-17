@@ -12,7 +12,7 @@ type Certificate = {
 };
 
 // Import certificate images
-import figmaCert from '../assets/Certificates/figma.jpg';
+import figmaCert from '../assets/Certificates/Figma.jpg';
 import deloitteCert from '../assets/Certificates/Deloitte.png';
 import angularCert from '../assets/Certificates/Angular.png';
 
@@ -81,7 +81,7 @@ const Certificates = () => {
       <div className="container mx-auto px-4 md:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
           <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 text-transparent bg-clip-text">
-            Certificates & Achievements
+            Certificates & Badges
           </span>
         </h2>
 
