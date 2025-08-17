@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import ScrollToTop from './components/ScrollToTop';
 import Skills from './components/Skills';
 import ThemeButton from './components/ThemeButton';
+import { Certificates } from './components/Certificates'
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -40,8 +41,8 @@ function App() {
         <Skills />
         <Experience />
         <Projects />
-        {/* <Testimonials />
-        <Certificates /> */}
+        {/* <Testimonials /> */}
+        <Certificates />
         <Contact />
       </main>
       <Footer />

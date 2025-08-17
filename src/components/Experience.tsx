@@ -17,7 +17,7 @@ const Experience = () => {
     {
       title: 'Frontend Developer',
       company: 'Vigyan Infoventures (OPC) Pvt Ltd',
-      period: 'May 2024 - May 2025',
+      period: 'May 2024 - June 2025',
       details: [
         'Spearheaded the development of Soulswed, a global wedding vendor booking platform, using Angular to build a fully responsive and dynamic web application used across 10+ countries.',
         'Translated Figma-based UI/UX designs into interactive interfaces, improving mobile user engagement by 30% through optimized responsive layouts and performance tuning.',
@@ -30,6 +30,12 @@ const Experience = () => {
   ];
 
   const educationData = [
+    {
+      degree: 'Master of Computer Applications',
+      institution: 'IHRD - College of Engineering, Chengannur',
+      period: 'Aug 2025 - Present',
+      // gpa: 'CGPA: 7.0/10',
+    },
     {
       degree: 'Bachelor of Science in Computer Science',
       institution: 'IHRD - College of Applied Science, Mallappally',

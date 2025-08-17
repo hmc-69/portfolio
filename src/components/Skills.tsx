@@ -74,7 +74,7 @@ const Skills = () => {
         { name: 'Angular', level: 90 },
         { name: 'HTML5/CSS3', level: 95 },
         { name: 'JavaScript/TypeScript', level: 85 },
-        { name: 'Responsive Design', level: 90 },
+        { name: 'Flutter(Dart)', level: 90 },
       ],
     },
     {
@@ -83,6 +83,7 @@ const Skills = () => {
         { name: 'Node.js', level: 80 },
         { name: 'Express.js', level: 75 },
         { name: 'RESTful APIs', level: 85 },
+        { name: 'PHP', level: 85 },
       ],
     },
     {
