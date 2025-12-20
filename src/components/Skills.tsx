@@ -1,7 +1,4 @@
-import { useRef } from 'react';
-import { useInView } from '../hooks/useInView';
-import IconCloud from './magicui/icon-cloud';
-import { Marquee } from './magicui/marquee';
+import { motion, Variants } from 'framer-motion';
 
 // Import images
 import angularLogo from '../assets/logo/Angular.png';
@@ -17,7 +14,6 @@ import githubLogo from '../assets/logo/github.png';
 import htmlLogo from '../assets/logo/html.png';
 import javaLogo from '../assets/logo/java-logo.png';
 import javascriptLogo from '../assets/logo/javascript.png';
-import magicLogo from '../assets/logo/magic.png';
 import mysqlLogo from '../assets/logo/mysql.png';
 import phpLogo from '../assets/logo/php.png';
 import pythonLogo from '../assets/logo/Python.png';
@@ -27,171 +23,137 @@ import vercelLogo from '../assets/logo/vercel.png';
 import viteLogo from '../assets/logo/vite.png';
 import vscodeLogo from '../assets/logo/VScode.png';
 
-interface SkillCategory {
-  title: string;
-  skills: Skill[];
-}
-
-interface Skill {
-  name: string;
-  level: number;
-}
-
-// Images for the IconCloud
-const images = [
-  angularLogo,
-  bootstrapLogo,
-  chatgptLogo,
-  cppLogo,
-  cssLogo,
-  dartLogo,
-  firebaseLogo,
-  flutterLogo,
-  gitLogo,
-  htmlLogo,
-  javaLogo,
-  javascriptLogo,
-  magicLogo,
-  mysqlLogo,
-  phpLogo,
-  pythonLogo,
-  reactLogo,
-  vercelLogo,
-  vscodeLogo,
-  typescriptLogo,
-  githubLogo,
-  viteLogo,
+const skillCategories = [
+  {
+    title: 'Frontend Ecosystem',
+    description: 'Building responsive, pixel-perfect user interfaces.',
+    skills: [
+      { name: 'Angular', icon: angularLogo },
+      { name: 'React', icon: reactLogo },
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'JavaScript', icon: javascriptLogo },
+      { name: 'HTML5', icon: htmlLogo },
+      { name: 'CSS3', icon: cssLogo },
+      { name: 'Bootstrap', icon: bootstrapLogo },
+    ],
+  },
+  {
+    title: 'Mobile & Web Frameworks',
+    description: 'Cross-platform development with modern tools.',
+    skills: [
+      { name: 'Flutter', icon: flutterLogo },
+      { name: 'Dart', icon: dartLogo },
+      { name: 'Vite', icon: viteLogo },
+    ],
+  },
+  {
+    title: 'Backend & Database',
+    description: 'Scalable server-side logic and data management.',
+    skills: [
+      { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' }, // Missing local logo, using secure CDN
+      { name: 'PHP', icon: phpLogo },
+      { name: 'MySQL', icon: mysqlLogo },
+      { name: 'Firebase', icon: firebaseLogo },
+      { name: 'Python', icon: pythonLogo },
+      { name: 'Java', icon: javaLogo },
+      { name: 'C++', icon: cppLogo },
+    ],
+  },
+  {
+    title: 'Tools & AI',
+    description: 'DevOps, version control, and AI integration.',
+    skills: [
+      { name: 'Git', icon: gitLogo },
+      { name: 'GitHub', icon: githubLogo },
+      { name: 'VS Code', icon: vscodeLogo },
+      { name: 'Vercel', icon: vercelLogo },
+      { name: 'ChatGPT API', icon: chatgptLogo },
+    ],
+  },
 ];
 
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 100,
+    }
+  },
+};
+
 const Skills = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { threshold: 0.1 });
-
-  const skillCategories: SkillCategory[] = [
-    {
-      title: 'Frontend',
-      skills: [
-        { name: 'Angular', level: 90 },
-        { name: 'HTML5/CSS3', level: 95 },
-        { name: 'JavaScript/TypeScript', level: 85 },
-        { name: 'Flutter(Dart)', level: 90 },
-      ],
-    },
-    {
-      title: 'Backend',
-      skills: [
-        { name: 'Node.js', level: 80 },
-        { name: 'Express.js', level: 75 },
-        { name: 'RESTful APIs', level: 85 },
-        { name: 'PHP', level: 85 },
-      ],
-    },
-    {
-      title: 'Database',
-      skills: [
-        { name: 'MySQL', level: 80 },
-        { name: 'Firebase', level: 75 },
-      ],
-    },
-    {
-      title: 'Other',
-      skills: [
-        { name: 'Git', level: 85 },
-        { name: 'UI/UX Design', level: 70 },
-        { name: 'Agile/Scrum', level: 80 },
-        { name: 'Problem Solving', level: 85 },
-      ],
-    },
-  ];
-
   return (
-    <section
-      id="skills"
-      ref={sectionRef}
-      className="py-20 bg-gray-100 dark:bg-gray-800/50"
-    >
-      <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 text-transparent bg-clip-text">
-            My Skills
-          </span>
-        </h2>
+    <section id="skills" className="py-24 bg-background relative overflow-hidden">
+      {/* Background Gradients */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-         {/* IconCloud Section */}
-         <div className="mb-6">
-          <IconCloud imageArray={images} />
-        </div>
-        
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold font-display mb-4 text-gray-900 dark:text-white">
+            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">Arsenal</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            My weapon of choice for conquering digital challenges.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {skillCategories.map((category, idx) => (
-            <div 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {skillCategories.map((category) => (
+            <motion.div
               key={category.title}
-              className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition-all duration-500 ${
-                isInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              }`} 
-              style={{ transitionDelay: `${idx * 100}ms` }}
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="bg-white/50 dark:bg-gray-900/50 border border-gray-200 dark:border-white/5 rounded-2xl p-8 hover:border-gray-300 dark:hover:border-white/10 transition-colors shadow-lg dark:shadow-none"
             >
-              <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
-                {category.title}
-              </h3>
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-2">
-                  {category.skills.map((skill) => (
-                    <div key={skill.name}>
-                      <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium block text-center">
-                        {skill.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{category.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{category.description}</p>
               </div>
-            </div>
+
+              <div className="flex flex-wrap gap-4">
+                {category.skills.map((skill) => (
+                  <motion.div
+                    key={skill.name}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="flex flex-col items-center gap-2 group cursor-pointer"
+                  >
+                    <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800/50 rounded-xl flex items-center justify-center p-3 border border-gray-200 dark:border-white/5 group-hover:border-neon-blue/50 group-hover:shadow-[0_0_15px_rgba(0,180,255,0.2)] transition-all duration-300">
+                      <img
+                        src={skill.icon}
+                        alt={skill.name}
+                        className="w-full h-full object-contain filter dark:grayscale group-hover:grayscale-0 transition-all duration-300"
+                      />
+                    </div>
+                    <span className="text-xs font-medium text-gray-600 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           ))}
-        </div>
-
-        <div className="mt-16 max-w-5xl mx-auto">
-          <h3 className="text-2xl font-semibold mb-8 text-center text-blue-600 dark:text-blue-400">
-            Code Arsenal
-          </h3>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-16 overflow-hidden">
-            <Marquee 
-              className="py-4"
-              pauseOnHover={true}
-              reverse={false}
-            >
-              {['Python', 'Java', 'C', 'C++', 'JavaScript', 'PHP', 'TypeScript' , 'Dart'].map((lang) => (
-                <span key={lang} className="mx-8 text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 text-transparent bg-clip-text whitespace-nowrap">
-                  {lang}
-                </span>
-              ))}
-            </Marquee>
-          </div>
-
-          <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition-all duration-500 ${
-            isInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`} style={{ transitionDelay: '400ms' }}>
-            <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
-              Professional Skills
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {[
-                'Agile Development (Scrum)',
-                'Problem-Solving',
-                'Team Collaboration',
-                'UI/UX Implementation',
-                'Time Management',
-              ].map((skill, index) => (
-                <div 
-                  key={skill}
-                  className="bg-gray-100 dark:bg-gray-700 rounded-md p-3 text-center text-sm font-medium transform transition-all hover:scale-105 hover:bg-blue-50 dark:hover:bg-blue-900/20"
-                  style={{ transitionDelay: `${index * 100 + 500}ms` }}
-                >
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

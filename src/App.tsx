@@ -10,6 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Skills from './components/Skills';
 import ThemeButton from './components/ThemeButton';
 import { Certificates } from './components/Certificates'
+import { Cursor } from './components/Cursor';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -35,6 +36,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <Header theme={theme} toggleTheme={toggleTheme} />
+      <Cursor />
       <main>
         <Hero />
         <About />

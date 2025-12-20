@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface HeaderProps {
   theme: string;
@@ -12,13 +13,8 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -26,9 +22,8 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
   const navLinks = [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Work' },
     { href: '#skills', label: 'Skills' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -39,83 +34,80 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 py-4 transition-all duration-300 ${isScrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
-      <div className="container mx-auto px-4 md:px-8">
-        <nav className="flex justify-between items-center">
-          <a href="#home" className="text-xl font-bold transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400">
-            H M C
+    <>
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-6'}`}
+      >
+        <div className={`absolute inset-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-white/5 shadow-lg' : 'bg-transparent'}`}></div>
+
+        <div className="container mx-auto px-6 relative z-10 flex justify-between items-center">
+          <a href="#home" className="text-2xl font-bold font-display tracking-tighter text-gray-900 dark:text-white">
+            H M C<span className="text-neon-blue">.</span>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <ul className="flex space-x-8">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-base font-medium transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-blue-600 dark:after:bg-blue-400 after:transition-all after:duration-300"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <button
-              onClick={toggleTheme}
-              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300"
-            >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation Button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={toggleTheme}
-              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-              className="p-2 mr-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300"
-            >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
-            <button 
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-              className="p-2 rounded-md text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </nav>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg py-4 px-4 transition-all duration-300 ease-in-out">
-          <ul className="space-y-4">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <button
+                key={link.href}
+                onClick={() => scrollToSection(link.href)}
+                className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors relative group"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-blue transition-all group-hover:w-full"></span>
+              </button>
+            ))}
+
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-gray-900 dark:text-white transition-colors border border-gray-200 dark:border-white/5"
+            >
+              {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+            </button>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-gray-900 dark:text-white"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+      </motion.header>
+
+      {/* Mobile Nav Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: '100vh' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="fixed inset-0 z-40 bg-white dark:bg-black pt-24 px-6 md:hidden overflow-hidden"
+          >
+            <div className="flex flex-col space-y-6 text-center">
+              {navLinks.map((link) => (
                 <button
+                  key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="block w-full text-left py-2 px-4 text-base font-medium transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"
+                  className="text-2xl font-bold text-gray-900 dark:text-white hover:text-neon-blue transition-colors"
                 >
                   {link.label}
                 </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </header>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

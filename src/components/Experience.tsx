@@ -1,6 +1,6 @@
 import { Briefcase, Calendar } from 'lucide-react';
 import { useRef } from 'react';
-import { useInView } from '../hooks/useInView';
+import { motion } from 'framer-motion';
 
 interface ExperienceItem {
   title: string;
@@ -11,7 +11,7 @@ interface ExperienceItem {
 
 const Experience = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { threshold: 0.1 });
+
 
   const experienceData: ExperienceItem[] = [
     {
@@ -34,7 +34,6 @@ const Experience = () => {
       degree: 'Master of Computer Applications',
       institution: 'IHRD - College of Engineering, Chengannur',
       period: 'Aug 2025 - Present',
-      // gpa: 'CGPA: 7.0/10',
     },
     {
       degree: 'Bachelor of Science in Computer Science',
@@ -45,89 +44,103 @@ const Experience = () => {
   ];
 
   return (
-    <section
-      id="experience"
-      ref={sectionRef}
-      className="py-20"
-    >
-      <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 text-transparent bg-clip-text">
-            Experience & Education
-          </span>
-        </h2>
+    <section id="experience" ref={sectionRef} className="py-24 bg-background relative overflow-hidden">
+      {/* Background decorative line */}
+      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-blue-500/20 to-transparent"></div>
 
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl font-semibold mb-8 flex items-center">
-            <Briefcase className="mr-2 text-blue-600 dark:text-blue-400" size={24} />
-            Professional Experience
-          </h3>
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-bold text-center mb-20 font-display"
+        >
+          Journey <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">& Growth</span>
+        </motion.h2>
 
-          <div className="space-y-8 ml-4">
-            {experienceData.map((item, index) => (
-              <div 
-                key={index}
-                className={`relative pl-8 pb-8 border-l-2 border-blue-200 dark:border-blue-900 transform transition-all duration-700 ${
-                  isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                <div className="absolute left-[-10px] top-0 w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500"></div>
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex justify-between flex-wrap gap-2">
-                    <h4 className="text-xl font-semibold">{item.title}</h4>
-                    <span className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 py-1 px-3 rounded-full flex items-center">
-                      <Calendar size={14} className="mr-1" />
-                      {item.period}
-                    </span>
-                  </div>
-                  <p className="text-blue-600 dark:text-blue-400 font-medium mt-1">{item.company}</p>
-                  <ul className="mt-4 space-y-2">
-                    {item.details.map((detail, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-blue-600 dark:text-blue-400 mr-2 mt-1">•</span>
-                        <span className="text-gray-700 dark:text-gray-300">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        <div className="max-w-4xl mx-auto grid gap-16">
+
+          {/* Experience Group */}
+          <div>
+            <div className="flex items-center mb-8 gap-4">
+              <div className="p-3 bg-blue-500/10 rounded-full text-neon-blue">
+                <Briefcase size={24} />
               </div>
-            ))}
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Experience</h3>
+            </div>
+
+            <div className="space-y-12">
+              {experienceData.map((item, index) => (
+                <TimelineItem key={index} index={index}>
+                  <div className="bg-white/50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-8 rounded-2xl hover:border-neon-blue/30 transition-colors shadow-lg dark:shadow-none">
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h4>
+                        <p className="text-neon-blue font-medium mt-1">{item.company}</p>
+                      </div>
+                      <span className="flex items-center text-sm bg-gray-100 dark:bg-white/10 px-3 py-1 rounded-full text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                        <Calendar size={14} className="mr-2" /> {item.period}
+                      </span>
+                    </div>
+                    <ul className="space-y-3">
+                      {item.details.map((detail, i) => (
+                        <li key={i} className="flex items-start text-gray-600 dark:text-gray-400 leading-relaxed">
+                          <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-neon-purple rounded-full flex-shrink-0"></span>
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </TimelineItem>
+              ))}
+            </div>
           </div>
 
-          <h3 className="text-2xl font-semibold mt-16 mb-8 flex items-center">
-            <Calendar className="mr-2 text-blue-600 dark:text-blue-400" size={24} />
-            Education
-          </h3>
-
-          <div className="space-y-8 ml-4">
-            {educationData.map((item, index) => (
-              <div 
-                key={index}
-                className={`relative pl-8 pb-8 border-l-2 border-blue-200 dark:border-blue-900 transform transition-all duration-700 ${
-                  isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}
-                style={{ transitionDelay: `${(index + experienceData.length) * 200}ms` }}
-              >
-                <div className="absolute left-[-10px] top-0 w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500"></div>
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex justify-between flex-wrap gap-2">
-                    <h4 className="text-xl font-semibold">{item.degree}</h4>
-                    <span className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 py-1 px-3 rounded-full flex items-center">
-                      <Calendar size={14} className="mr-1" />
-                      {item.period}
-                    </span>
-                  </div>
-                  <p className="text-blue-600 dark:text-blue-400 font-medium mt-1">{item.institution}</p>
-                  <p className="mt-4 text-gray-700 dark:text-gray-300">{item.gpa}</p>
-                </div>
+          {/* Education Group */}
+          <div>
+            <div className="flex items-center mb-8 gap-4">
+              <div className="p-3 bg-purple-500/10 rounded-full text-neon-purple">
+                <Briefcase size={24} />
               </div>
-            ))}
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Education</h3>
+            </div>
+
+            <div className="space-y-8">
+              {educationData.map((item, index) => (
+                <TimelineItem key={index} index={index + experienceData.length}>
+                  <div className="bg-white/50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-8 rounded-2xl hover:border-neon-purple/30 transition-colors shadow-lg dark:shadow-none">
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-white">{item.degree}</h4>
+                        <p className="text-neon-purple font-medium mt-1">{item.institution}</p>
+                      </div>
+                      <span className="flex items-center text-sm bg-gray-100 dark:bg-white/10 px-3 py-1 rounded-full text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                        <Calendar size={14} className="mr-2" /> {item.period}
+                      </span>
+                    </div>
+                    {item.gpa && <p className="text-gray-600 dark:text-gray-400 font-mono text-sm border-t border-gray-200 dark:border-white/5 pt-4 mt-4 inline-block">{item.gpa}</p>}
+                  </div>
+                </TimelineItem>
+              ))}
+            </div>
           </div>
+
         </div>
       </div>
     </section>
   );
 };
+
+const TimelineItem = ({ children, index }: { children: React.ReactNode, index: number }) => (
+  <motion.div
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true, margin: "-50px" }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="relative pl-8 md:pl-0"
+  >
+    {children}
+  </motion.div>
+);
 
 export default Experience;
