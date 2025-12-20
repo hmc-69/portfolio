@@ -96,7 +96,6 @@ const projects: Project[] = [
     details: {
       problem: 'Typing practice tools often lack visual engagement and high-stakes mechanics.',
       solution: 'Integrated Matter.js for physics simulations (UI collapse) and implemented sudden-death survival rules.',
-
       outcome: 'Created a high-intensity, visually reactive game that tests typing speed and accuracy under pressure.'
     },
     demoLink: '#',

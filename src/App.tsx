@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Snowfall from 'react-snowfall';
 import About from './components/About';
 import Contact from './components/Contact';
 import Experience from './components/Experience';
@@ -34,7 +35,18 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 relative">
+      <Snowfall
+        snowflakeCount={200}
+        color="white"
+        style={{
+          position: 'fixed',
+          width: '100vw',
+          height: '100vh',
+          zIndex: 1000,
+          pointerEvents: 'none'
+        }}
+      />
       <Header theme={theme} toggleTheme={toggleTheme} />
       <Cursor />
       <main>
