@@ -14,6 +14,8 @@ interface Project {
     solution: string;
     outcome: string;
   };
+  demoLink?: string;
+  repoLink?: string;
 }
 
 const projects: Project[] = [
@@ -68,6 +70,37 @@ const projects: Project[] = [
       solution: 'Built a custom e-commerce solution with robust database schema for product specifications and filtering.',
       outcome: 'Provided a dedicated platform for tech enthusiasts to compare and purchase devices efficiently.'
     }
+  },
+  {
+    id: 5,
+    title: 'Password Roast',
+    category: 'Web Application',
+    description: 'Interactive password strength evaluator with roast-style feedback and real-time scoring.',
+    image: 'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    technologies: ['Python', 'Flask', 'JavaScript', 'HTML/CSS'],
+    details: {
+      problem: 'Standard password strength checkers are often boring and users ignore security advice.',
+      solution: 'Developed a Python (Flask) scoring engine with a responsive glassmorphism UI and humorous feedback loops.',
+      outcome: 'Resulted in an engaging tool that encourages users to create stronger passwords through gamified "roasting".'
+    },
+    demoLink: '#',
+    repoLink: '#'
+  },
+  {
+    id: 6,
+    title: 'Gravity Fall',
+    category: 'Game Development',
+    description: 'Cyberpunk-style typing survival game with physics-based UI destruction.',
+    image: 'https://images.pexels.com/photos/7852705/pexels-photo-7852705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    technologies: ['JavaScript', 'Matter.js', 'React'],
+    details: {
+      problem: 'Typing practice tools often lack visual engagement and high-stakes mechanics.',
+      solution: 'Integrated Matter.js for physics simulations (UI collapse) and implemented sudden-death survival rules.',
+
+      outcome: 'Created a high-intensity, visually reactive game that tests typing speed and accuracy under pressure.'
+    },
+    demoLink: '#',
+    repoLink: '#'
   }
 ];
 
@@ -223,19 +256,27 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
                   ))}
                 </div>
               </div>
-              <div>
-                <a href="#" className="block w-full py-4 text-center bg-white text-black font-bold rounded hover:bg-gray-200 transition-colors mb-3">
-                  View Live Demo
-                </a>
-                <a href="#" className="block w-full py-4 text-center bg-transparent border border-white/20 text-white font-bold rounded hover:bg-white/5 transition-colors">
-                  View Code
-                </a>
-              </div>
+
+              {(project.demoLink || project.repoLink) && (
+                <div className="flex flex-col gap-3 pt-6 border-t border-white/10">
+                  {project.demoLink && (
+                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="block w-full py-4 text-center bg-white text-black font-bold rounded hover:bg-gray-200 transition-colors">
+                      View Live Demo
+                    </a>
+                  )}
+                  {project.repoLink && (
+                    <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="block w-full py-4 text-center bg-transparent border border-white/20 text-white font-bold rounded hover:bg-white/5 transition-colors">
+                      View Code
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
-      </motion.div>
-    </div>
+
+      </motion.div >
+    </div >
   );
 }
 
