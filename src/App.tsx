@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 relative">
       <Snowfall
-        snowflakeCount={200}
+        snowflakeCount={50}
         color="white"
         style={{
           position: 'fixed',

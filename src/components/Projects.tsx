@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
 import { X, ArrowRight } from 'lucide-react';
-
+import gravityFall from '../assets/gravityfall.png';
 interface Project {
   id: number;
   title: string;
@@ -21,6 +21,35 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: 'Password Roast',
+    category: 'Web Application',
+    description: 'Interactive password strength evaluator with roast-style feedback and real-time scoring.',
+    image: 'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    technologies: ['Python', 'Flask', 'JavaScript', 'HTML/CSS'],
+    details: {
+      problem: 'Standard password strength checkers are often boring and users ignore security advice.',
+      solution: 'Developed a Python (Flask) scoring engine with a responsive glassmorphism UI and humorous feedback loops.',
+      outcome: 'Resulted in an engaging tool that encourages users to create stronger passwords through gamified "roasting".'
+    },
+    demoLink: 'https://hmc-pass-check.vercel.app/',
+    repoLink: 'https://github.com/hmc-69/password-strength-checker'
+  },
+  {
+    id: 2,
+    title: 'Gravity Fall',
+    category: 'Game Development',
+    description: 'Cyberpunk-style typing survival game with physics-based UI destruction.',
+    image: gravityFall,
+    technologies: ['JavaScript', 'Matter.js', 'React'],
+    details: {
+      problem: 'Typing practice tools often lack visual engagement and high-stakes mechanics.',
+      solution: 'Integrated Matter.js for physics simulations (UI collapse) and implemented sudden-death survival rules.',
+      outcome: 'Created a high-intensity, visually reactive game that tests typing speed and accuracy under pressure.'
+    },
+    demoLink: 'https://gravity-fall.vercel.app/',
+    repoLink: 'https://github.com/hmc-69/gravity-fall'
+  }, {
+    id: 3,
     title: 'Soulswed',
     category: 'Full Stack Web App',
     description: 'International Wedding Vendor Booking Platform connecting couples with vendors across 10+ countries.',
@@ -33,7 +62,7 @@ const projects: Project[] = [
     }
   },
   {
-    id: 2,
+    id: 4,
     title: 'Airline Bidding',
     category: 'Enterprise System',
     description: 'Real-time platform for airline analysts to bid on and negotiate ticket prices dynamically.',
@@ -46,7 +75,7 @@ const projects: Project[] = [
     }
   },
   {
-    id: 3,
+    id: 5,
     title: 'Viberrr',
     category: 'Mobile App',
     description: 'Ad-free music streaming application focusing on pure listening experience.',
@@ -59,7 +88,7 @@ const projects: Project[] = [
     }
   },
   {
-    id: 4,
+    id: 6,
     title: 'Tech Hub',
     category: 'E-commerce',
     description: 'Modern electronics marketplace with advanced filtering and cart management.',
@@ -71,36 +100,6 @@ const projects: Project[] = [
       outcome: 'Provided a dedicated platform for tech enthusiasts to compare and purchase devices efficiently.'
     }
   },
-  {
-    id: 5,
-    title: 'Password Roast',
-    category: 'Web Application',
-    description: 'Interactive password strength evaluator with roast-style feedback and real-time scoring.',
-    image: 'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    technologies: ['Python', 'Flask', 'JavaScript', 'HTML/CSS'],
-    details: {
-      problem: 'Standard password strength checkers are often boring and users ignore security advice.',
-      solution: 'Developed a Python (Flask) scoring engine with a responsive glassmorphism UI and humorous feedback loops.',
-      outcome: 'Resulted in an engaging tool that encourages users to create stronger passwords through gamified "roasting".'
-    },
-    demoLink: '#',
-    repoLink: '#'
-  },
-  {
-    id: 6,
-    title: 'Gravity Fall',
-    category: 'Game Development',
-    description: 'Cyberpunk-style typing survival game with physics-based UI destruction.',
-    image: 'https://images.pexels.com/photos/7852705/pexels-photo-7852705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    technologies: ['JavaScript', 'Matter.js', 'React'],
-    details: {
-      problem: 'Typing practice tools often lack visual engagement and high-stakes mechanics.',
-      solution: 'Integrated Matter.js for physics simulations (UI collapse) and implemented sudden-death survival rules.',
-      outcome: 'Created a high-intensity, visually reactive game that tests typing speed and accuracy under pressure.'
-    },
-    demoLink: '#',
-    repoLink: '#'
-  }
 ];
 
 const ProjectCard = ({ project, onClick }: { project: Project; onClick: (p: Project) => void }) => {
