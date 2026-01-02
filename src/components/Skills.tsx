@@ -46,7 +46,7 @@ const skillCategories = [
     ],
   },
   {
-    title: 'Future Tech & Tools',
+    title: 'Tech & Tools',
     description: 'Emerging technologies and developer tooling.',
     skills: [
       { name: 'AI Integration', icon: chatgptLogo },
