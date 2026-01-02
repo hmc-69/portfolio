@@ -2,20 +2,16 @@ import { motion, Variants } from 'framer-motion';
 
 // Import images
 import angularLogo from '../assets/logo/Angular.png';
-import bootstrapLogo from '../assets/logo/bootstrap.png';
 import chatgptLogo from '../assets/logo/chatgpt.png';
 import cppLogo from '../assets/logo/cpp.png';
 import cssLogo from '../assets/logo/css.png';
-import dartLogo from '../assets/logo/Dart_logo.png';
 import firebaseLogo from '../assets/logo/Firebase.png';
 import flutterLogo from '../assets/logo/flutter.png';
 import gitLogo from '../assets/logo/git.png';
 import githubLogo from '../assets/logo/github.png';
 import htmlLogo from '../assets/logo/html.png';
 import javaLogo from '../assets/logo/java-logo.png';
-import javascriptLogo from '../assets/logo/javascript.png';
 import mysqlLogo from '../assets/logo/mysql.png';
-import phpLogo from '../assets/logo/php.png';
 import pythonLogo from '../assets/logo/Python.png';
 import reactLogo from '../assets/logo/React.png';
 import typescriptLogo from '../assets/logo/Typescript.png';
@@ -25,49 +21,39 @@ import vscodeLogo from '../assets/logo/VScode.png';
 
 const skillCategories = [
   {
-    title: 'Frontend Ecosystem',
-    description: 'Building responsive, pixel-perfect user interfaces.',
+    title: 'Core Engineering',
+    description: 'The foundation of scalable systems and logic.',
     skills: [
-      { name: 'Angular', icon: angularLogo },
-      { name: 'React', icon: reactLogo },
-      { name: 'TypeScript', icon: typescriptLogo },
-      { name: 'JavaScript', icon: javascriptLogo },
-      { name: 'HTML5', icon: htmlLogo },
-      { name: 'CSS3', icon: cssLogo },
-      { name: 'Bootstrap', icon: bootstrapLogo },
-    ],
-  },
-  {
-    title: 'Mobile & Web Frameworks',
-    description: 'Cross-platform development with modern tools.',
-    skills: [
-      { name: 'Flutter', icon: flutterLogo },
-      { name: 'Dart', icon: dartLogo },
-      { name: 'Vite', icon: viteLogo },
-    ],
-  },
-  {
-    title: 'Backend & Database',
-    description: 'Scalable server-side logic and data management.',
-    skills: [
-      { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' }, // Missing local logo, using secure CDN
-      { name: 'PHP', icon: phpLogo },
-      { name: 'MySQL', icon: mysqlLogo },
-      { name: 'Firebase', icon: firebaseLogo },
-      { name: 'Python', icon: pythonLogo },
       { name: 'Java', icon: javaLogo },
       { name: 'C++', icon: cppLogo },
+      { name: 'Python', icon: pythonLogo },
+      { name: 'MySQL', icon: mysqlLogo },
+      { name: 'Git', icon: gitLogo },
+      { name: 'GitHub', icon: githubLogo },
     ],
   },
   {
-    title: 'Tools & AI',
-    description: 'DevOps, version control, and AI integration.',
+    title: 'Product Construction',
+    description: 'Modern frameworks for building high-impact apps.',
     skills: [
-      { name: 'Git', icon: gitLogo },
-      { name: 'GitHub', icon: githubLogo },
+      { name: 'React', icon: reactLogo },
+      { name: 'Angular', icon: angularLogo },
+      { name: 'TypeScript', icon: typescriptLogo },
+      { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+      { name: 'Flutter', icon: flutterLogo },
+      { name: 'HTML5', icon: htmlLogo },
+      { name: 'CSS3', icon: cssLogo },
+    ],
+  },
+  {
+    title: 'Future Tech & Tools',
+    description: 'Emerging technologies and developer tooling.',
+    skills: [
+      { name: 'AI Integration', icon: chatgptLogo },
+      { name: 'Vite', icon: viteLogo },
+      { name: 'Firebase', icon: firebaseLogo },
       { name: 'VS Code', icon: vscodeLogo },
       { name: 'Vercel', icon: vercelLogo },
-      { name: 'ChatGPT API', icon: chatgptLogo },
     ],
   },
 ];

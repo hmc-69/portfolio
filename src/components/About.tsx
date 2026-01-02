@@ -34,8 +34,8 @@ const About = () => {
               />
 
               <div className="absolute bottom-6 left-6 z-20 text-white">
-                <p className="text-sm font-light tracking-widest uppercase mb-1 text-neon-blue">Based in India</p>
-                <p className="text-xl font-medium">Building the future, one pixel at a time.</p>
+                <p className="text-sm font-light tracking-widest uppercase mb-1 text-neon-blue">Engineering & Design</p>
+                <p className="text-xl font-medium">Based in India. Building Global.</p>
               </div>
             </div>
           </motion.div>
@@ -46,11 +46,11 @@ const About = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl font-bold font-display"
+              className="text-3xl md:text-5xl font-bold font-display"
             >
-              More than just <br />
+              Bridging complex logic with <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">
-                syntax & logic.
+                cinematic user experiences.
               </span>
             </motion.h2>
 
@@ -61,15 +61,15 @@ const About = () => {
               className="space-y-6 text-lg text-gray-600 dark:text-gray-400 font-light leading-relaxed"
             >
               <p>
-                I’m <span className="text-gray-900 dark:text-white font-medium">Hemanth Chandran</span>, an <span className="text-neon-blue">MCA student</span> and frontend developer working at the intersection of engineering and design.
+                I am a <span className="text-gray-900 dark:text-white font-medium">Frontend Engineer</span> and <span className="text-neon-blue">MCA Scholar</span> focused on building scalable, impact-driven applications. With over a year of professional experience, I have architected platforms serving users across <span className="text-gray-900 dark:text-white font-medium">10+ countries</span>.
               </p>
 
               <p>
-                I focus on building clean, interactive, and performant web experiences, paying close attention to the details that elevate a product—from motion and layout to structure and scalability.
+                My expertise lies in translating complex backend requirements into intuitive, performant interfaces using <span className="text-gray-900 dark:text-white">React, Angular, and Node.js</span>. I don't just write code; I engineer solutions that drive user engagement and business growth.
               </p>
 
               <p>
-                Whether it’s architecting modern <span className="text-gray-900 dark:text-white">React/Angular</span> interfaces or experimenting with <span className="text-gray-900 dark:text-white">AI-integrated features</span>, I aim to build software that feels purposeful and memorable.
+                Currently, I am expanding into <span className="text-gray-900 dark:text-white">AI-driven interfaces</span> and adaptive UI systems, exploring how intelligent algorithms can reshape the way we interact with the web.
               </p>
             </motion.div>
 

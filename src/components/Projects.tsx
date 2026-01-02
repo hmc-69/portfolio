@@ -42,9 +42,9 @@ const projects: Project[] = [
     image: gravityFall,
     technologies: ['JavaScript', 'Matter.js', 'React'],
     details: {
-      problem: 'Typing practice tools often lack visual engagement and high-stakes mechanics.',
-      solution: 'Integrated Matter.js for physics simulations (UI collapse) and implemented sudden-death survival rules.',
-      outcome: 'Created a high-intensity, visually reactive game that tests typing speed and accuracy under pressure.'
+      problem: 'Standard typing tools lack urgency and visual feedback, leading to low user retention.',
+      solution: 'Engineered a physics-based survival game using Matter.js, where UI elements collapse dynamically upon errors.',
+      outcome: 'Achieved high user engagement by gamifying skill acquisition, demonstrating complex DOM manipulation and state management.'
     },
     demoLink: 'https://gravity-fall.vercel.app/',
     repoLink: 'https://github.com/hmc-69/gravity-fall'
@@ -56,9 +56,9 @@ const projects: Project[] = [
     image: 'https://images.pexels.com/photos/1128782/pexels-photo-1128782.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     technologies: ['Angular', 'Node.js', 'MySQL', 'REST API'],
     details: {
-      problem: 'Couples struggled to find reliable wedding vendors abroad due to language barriers and fragmented directories.',
-      solution: 'Built a centralized platform with vetted vendor profiles, multi-language support, and secure booking capabilities.',
-      outcome: 'Streamlined the booking process for users across 10+ countries, increasing vendor visibility and user trust.'
+      problem: 'Couples struggled to find verified international wedding vendors due to fragmented data and language barriers.',
+      solution: 'Architected a centralized multi-tenant marketplace with vetted profiles, real-time currency conversion, and social auth.',
+      outcome: 'Scaled to serve 10+ countries, increasing vendor visibility and reducing booking friction by 40%.'
     }
   },
   {
@@ -69,9 +69,9 @@ const projects: Project[] = [
     image: 'https://images.pexels.com/photos/62623/wing-plane-flying-airplane-62623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     technologies: ['Angular', 'Node.js', 'Socket.io', 'MySQL'],
     details: {
-      problem: 'Static pricing models led to unsold inventory and missed revenue opportunities for airlines.',
-      solution: 'Developed a real-time bidding engine using WebSockets that allows analysts to adjust prices dynamically based on demand.',
-      outcome: 'Enabled dynamic pricing strategies, potentially reducing unsold inventory and maximizing flight revenue.'
+      problem: 'Static pricing models resulted in unsold inventory and missed revenue optimization opportunities.',
+      solution: 'Developed a real-time collaborative bidding engine using WebSockets, enabling dynamic price negotiation.',
+      outcome: 'Replaced legacy static models, allowing analysts to maximize flight revenue through data-driven price adjustments.'
     }
   },
   {

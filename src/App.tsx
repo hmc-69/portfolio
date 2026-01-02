@@ -12,6 +12,7 @@ import Skills from './components/Skills';
 import ThemeButton from './components/ThemeButton';
 import { Certificates } from './components/Certificates'
 import { Cursor } from './components/Cursor';
+import CareerVisualizer from './components/CareerVisualizer';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -54,6 +55,7 @@ function App() {
         <About />
         <Skills />
         <Experience />
+        <CareerVisualizer />
         <Projects />
         {/* <Testimonials /> */}
         <Certificates />

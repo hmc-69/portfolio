@@ -47,19 +47,18 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed"
+            className="text-xl md:text-3xl text-gray-400 max-w-3xl font-light leading-relaxed font-display"
           >
-            A creative developer building <span className="text-neon-blue font-medium">immersive</span> web experiences
-            with a focus on <span className="text-neon-purple font-medium">cinematic</span> motion and performance.
+            Engineering the interval between <span className="text-neon-blue font-medium">Data</span> and <span className="text-neon-purple font-medium">Design</span>.
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-sm md:text-base text-gray-500"
+            className="text-sm md:text-lg text-gray-500 max-w-2xl"
           >
-            MCA Student • Frontend Developer • Building Interactive Web Experiences • AI & Scalable Systems
+            Building immersive, intelligent web experiences that scale.
           </motion.p>
 
           {/* Magnetic Buttons */}
