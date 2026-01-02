@@ -83,9 +83,9 @@ const Contact = () => {
 
             <div className="flex gap-4 pt-8">
               {/* Social Placeholders - add real links if available */}
-              <SocialLink icon={<Github />} href="#" />
-              <SocialLink icon={<Linkedin />} href="#" />
-              <SocialLink icon={<Twitter />} href="#" />
+              <SocialLink icon={<Github />} href="https://github.com/hmc-69" />
+              <SocialLink icon={<Linkedin />} href="https://www.linkedin.com/in/hemanthchandran/" />
+              {/* <SocialLink icon={<Twitter />} href="#" /> */}
             </div>
           </motion.div>
 
