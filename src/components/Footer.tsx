@@ -12,9 +12,8 @@ const Footer = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"><Github size={20} /></a>
-          <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"><Linkedin size={20} /></a>
-          <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"><Twitter size={20} /></a>
+          <a href="https://github.com/hmc-69" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"><Github size={20} /></a>
+          <a href="https://www.linkedin.com/in/hemanthchandran/" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"><Linkedin size={20} /></a>
           <a href="mailto:hemanthchandran541@gmail.com" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"><Mail size={20} /></a>
         </div>
       </div>
